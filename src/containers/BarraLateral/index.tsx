@@ -10,14 +10,16 @@ import { Botao, Campo } from '../../styles'
 
 type Props = {
   mostrarFiltros: boolean
+  BarraLateralVisivel?: boolean
 }
 
-const BarraLateral = ({ mostrarFiltros }: Props) => {
+const BarraLateral = ({ mostrarFiltros, BarraLateralVisivel }: Props) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { termo } = useSelector((state: RootReducer) => state.filtro)
+
   return (
-    <S.Aside>
+    <S.Aside className={BarraLateralVisivel ? 'visivel' : ''}>
       <div>
         {mostrarFiltros ? (
           <>
